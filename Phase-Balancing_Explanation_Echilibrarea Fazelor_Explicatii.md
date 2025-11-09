@@ -5,8 +5,9 @@ Phase Balancing App | Aplicatie pentru Echilbarea Fazelor
 EN = English
 RO = Romana
 
-0) The motivation behind this app
 ---------------------------------
+0) The motivation behind this app
+
 EN:
 I made this app to make phase balancing at work a lot simpler. We used to do it manually, checking and recalculating everything by hand, which took time and sometimes led to small mistakes.
 Now the program figures out the best balance across the three phases in seconds, saving both time and effort.
@@ -15,9 +16,9 @@ RO:
 Am creat aceasta aplicatie ca sa imi usurez calculul echilibrarii fazelor la munca. Inainte faceam totul manual, verificand si recalculand de mai multe ori, ceea ce lua timp si mai aparea cate o greseala.
 Acum programul gaseste rapid cea mai buna distributie pe cele trei faze, economisind timp si efort.
 
-
-1) Overview / Prezentare generala
 ----------------------------------
+1) Overview / Prezentare generala
+
 EN:
 The app lets the user input a number of consumers (each with a power in kW)
 and automatically distributes them into 3 phases to balance the total load as evenly as possible.
@@ -34,9 +35,9 @@ Este un program in consola cu un algoritm hibrid: foloseste o metoda exacta pent
 si una complexa rapida pentru seturi mari. Accepta limbile engleza si romana si ofera optiuni pentru
 reluare, schimbarea limbii sau iesire.
 
-
-2) Language Resources (LANGS) / Resurse de limba (LANGS)
 --------------------------------------------------------
+2) Language Resources (LANGS) / Resurse de limba (LANGS)
+
 EN:
 The app stores all messages (labels, prompts, etc.) for both languages in one dictionary called LANGS.
 
@@ -51,9 +52,9 @@ dictionar numit LANGS.
 LANGS este un dictionar cu doua chei ("en" si "ro"). Fiecare cheie contine textele
 folosite in program. Astfel, se poate schimba limba dinamic si traducerile sunt usor de intretinut.
 
-
-3) Number Input / Introducerea valorilor
 ----------------------------------------
+3) Number Input / Introducerea valorilor
+
 EN:
 You enter the number of consumers, then enter each consumer’s kW value one by one.
 
@@ -67,9 +68,9 @@ Faza de introducere valideaza datele numerice: daca valoarea introdusa este gres
 aplicatia afiseaza o eroare si cere repetarea. Virgulele zecimale (1,25) sunt convertite automat
 in puncte zecimale (1.25).
 
-
-4) Exact Solver / Algoritmul exact
 ----------------------------------
+4) Exact Solver / Algoritmul exact
+
 EN:
 For small numbers of consumers (up to 12), the app tries all combinations (all possible combinations but optimized)
 to find the perfect balance.
@@ -87,9 +88,9 @@ consumator este fixat pe o faza pentru a evita permutarile echivalente. Recursia
 anticipat daca un rezultat partial este deja mai slab decat cel mai bun gasit. Garanteaza solutia optima
 pentru seturi mici.
 
-
+--------------------------------------
 5) Complex Solver / Algoritmul complex
------------------------------------------
+
 EN:
 For larger lists, it uses a fast, near-optimal algorithm instead of checking every possibility.
 
@@ -106,9 +107,9 @@ A) Distributie greedy: sorteaza consumatorii descrescator si ii adauga pe faza c
 B) Cautare locala: muta sau schimba consumatori intre faze pentru a reduce dezechilibrul.
 C) Repetare multipla: ruleaza algoritmul de mai multe ori cu mici variatii aleatoare si pastreaza cel mai bun rezultat.
 
-
-6) Phase Balancing Function / Functia de Echilibrare a Fazelor
 --------------------------------------------------------------
+6) Phase Balancing Function / Functia de Echilibrare a Fazelor
+
 EN:
 It decides whether to use the exact or complex solver based on the number of consumers.
 
@@ -123,9 +124,9 @@ Functia Phase_Balancing() verifica numarul de consumatori.
 Daca este ≤ 12 → foloseste solverul exact; daca este > 12 → foloseste solverul complex.
 Returneaza listele de consumatori pe faze, totalurile si dezechilibrul obtinut.
 
-
-7) Output Formatting / Afisarea rezultatului
 --------------------------------------------
+7) Output Formatting / Afisarea rezultatului
+
 EN:
 The app prints each phase’s total kW and the deviation (positive = over, negative = under).
 “≈ balanced” appears when the deviation is near zero.
@@ -134,9 +135,9 @@ RO:
 Aplicatia afiseaza totalul kW pentru fiecare faza si deviatia (pozitiv = peste, negativ = sub).
 Afiseaza „≈ echilibrat” daca deviatia este aproape de zero.
 
-
-8) Summary Section / Sectiunea de rezumat
 -----------------------------------------
+8) Summary Section / Sectiunea de rezumat
+
 EN:
 After listing phases, it prints the ideal average load and shows whether any imbalance exists.
 
@@ -149,9 +150,9 @@ Dupa afisarea fazelor, programul afiseaza valoarea medie ideala si indica daca e
 Daca toate fazele sunt la ±0.005 kW fata de medie, afiseaza „Nu exista dezechilibru.”
 In caz contrar, enumera toate fazele cu cea mai mare deviatia absoluta.
 
-
-9) Language Selection / Alegerea limbii
 ---------------------------------------
+9) Language Selection / Alegerea limbii
+
 EN:
 At the start (or when you press L), you choose the language (1 or 2) and confirm with Enter.
 
@@ -164,9 +165,9 @@ La inceput (sau cand se apasa L), se alege limba (1 sau 2) si se confirma cu Ent
 pick_language() sterge ecranul, afiseaza promptul bilingv, asteapta introducerea „1” sau „2”
 si returneaza codul „en” sau „ro”. Intreaga interfata foloseste aceasta setare pana este schimbata.
 
-
-10) Controls (R, L, X) / Controale (R, L, X)
 --------------------------------------------
+10) Controls (R, L, X) / Controale (R, L, X)
+
 EN:
 After results the wait_key() function reads the key pressed.
 R restarts the process, L reopens language selection, X ends the program.
@@ -175,9 +176,9 @@ RO:
 Dupa rezultate functia wait_key() citeste tasta apasata.
 R reporneste procesul, L redeschide selectarea limbii, X inchide programul.
 
-
-11) Performance and Scaling / Performanta si scalare
 ----------------------------------------------------
+11) Performance and Scaling / Performanta si scalare
+
 EN:
 The exact algorithm grows exponentially (3^n), so it’s only used up to 12 consumers.
 
@@ -190,9 +191,9 @@ Algoritmul exact creste exponential (3^n), deci este folosit doar pana la 12 con
 Versiunea complexa ruleaza in cateva milisecunde chiar si pentru zeci de consumatori,
 folosind initializare greedy, optimizare locala si reporniri aleatorii limitate.
 
-
-12) Possible Future Updates / Imbunatatiri viitoare posibile
 ------------------------------------------------------------
+12) Possible Future Updates / Imbunatatiri viitoare posibile
+
 EN:
 Potential upgrades include:
  - a parallel version for multi-core CPUs (i don't think it's necessary for now)
