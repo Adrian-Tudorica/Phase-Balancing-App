@@ -1,5 +1,17 @@
-PhaseBalancingApp/build/* linguist-vendored
-PhaseBalancingApp/dist/* linguist-vendored
-PhaseBalancingApp/*.spec linguist-vendored
-*.txt linguist-vendored
 *.md linguist-documentation
+*.txt linguist-vendored
+
+*.exe linguist-vendored
+*.lnk linguist-vendored
+*.dll linguist-vendored
+*.pyd linguist-vendored
+*.ico linguist-vendored
+*.spec linguist-vendored
+
+PhaseBalancingApp/build/** linguist-vendored
+PhaseBalancingApp/dist/**  linguist-vendored
+
+PhaseBalancingApp/** linguist-vendored
+
+PhaseBalancingApp/*.py linguist-vendored=false
+PhaseBalancingApp/*.py linguist-language=Python
