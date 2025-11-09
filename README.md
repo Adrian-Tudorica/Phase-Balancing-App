@@ -12,7 +12,7 @@ This program distributes a list of consumers (each with a power in kW)
 into three phases so that the total power in each phase is as balanced as possible.
 
 It automatically chooses the best algorithm:
-- Exact solver (for small sets, up to 12 consumers): brute calculations, all combinations: x^y, where x = 3 (3 phases), iar y = the number of single phase consumers.
+- Exact solver (for small sets, up to 12 consumers): brute calculations, all combinations: x^y, where x = 3 (3 phases), and y = the number of single phase consumers.
 - Complex solver (for larger sets, fast and near-optimal): when y > 12, the time needed for the exact solver to find the solution grows by a lot. In order to cut the time needed, a new solution was implemented.
 
 2) Usage
