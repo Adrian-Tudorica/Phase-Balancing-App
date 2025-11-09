@@ -1,5 +1,5 @@
-build/* linguist-vendored
-dist/* linguist-vendored
-*.spec linguist-vendored
+PhaseBalancingApp/build/* linguist-vendored
+PhaseBalancingApp/dist/* linguist-vendored
+PhaseBalancingApp/*.spec linguist-vendored
 *.txt linguist-vendored
 *.md linguist-documentation
